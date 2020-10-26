@@ -1,0 +1,7 @@
+{
+  "name": "zinciri-kirma-frontend",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "muhodev <hi@muho.dev>",
+  "license": "MIT"
+}
