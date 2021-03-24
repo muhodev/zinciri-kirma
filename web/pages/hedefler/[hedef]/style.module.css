@@ -1,0 +1,7 @@
+.hedef {
+  @apply grid 
+  gap-0
+  grid-cols-7;
+  height: calc(100vh - 56px);
+  width: 100vw;
+}
