@@ -52,18 +52,20 @@ export default function HedefPage(props) {
         </div>
         <div className="grid gap-0 grid-cols-7 flex-1">
           {days.map((item, index) => (
-            <div className="border-r border-b text-center mt-1" key={index}>
-              <span
-                className={`text-sm px-2 py-1 rounded-full cursor-pointer ${
-                  item.isPadding ? `text-gray-500` : null
-                } ${
-                  item.isCurrentDay
-                    ? `bg-blue-500 text-white`
-                    : `hover:bg-gray-100`
-                }`}
-              >
-                {item.value}
-              </span>
+            <div className="border-r border-b text-center" key={index}>
+              <div className="p-1 w-full h-full">
+                <span
+                  className={`text-sm px-2 py-1 rounded-full cursor-pointer ${
+                    item.isPadding ? `text-gray-500` : null
+                  } ${
+                    item.isCurrentDay
+                      ? `bg-blue-500 text-white`
+                      : `hover:bg-gray-100`
+                  }`}
+                >
+                  {item.value}
+                </span>
+              </div>
             </div>
           ))}
         </div>

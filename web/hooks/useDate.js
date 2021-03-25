@@ -59,12 +59,15 @@ export const useDate = ({ yil, ay }) => {
   for (let index = 0; index < len; index++) {
     days.push({
       value:
-        index + 1 === 1 ? `${index + 1} ${shortMonths[month + 1]}` : index + 1,
+        index + 1 === 1
+          ? `${index + 1} ${shortMonths[month === 11 ? 0 : month + 1]}`
+          : index + 1,
       isCurrentDay: false,
       date: "",
       isPadding: true,
     });
   }
+  console.log(month);
 
   return {
     days,
