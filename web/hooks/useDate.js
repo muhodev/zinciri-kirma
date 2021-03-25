@@ -1,3 +1,4 @@
+import { shortMonths } from "locale";
 import { useEffect, useState } from "react";
 
 export const useDate = ({ yil, ay }) => {
@@ -33,25 +34,35 @@ export const useDate = ({ yil, ay }) => {
     const dayString = `${month + 1}/${i - paddingDays}/${year}`;
 
     if (i > paddingDays) {
+      let value =
+        i - paddingDays === 1
+          ? `${i - paddingDays} ${shortMonths[month]}`
+          : i - paddingDays;
       days.push({
-        value: i - paddingDays,
-        isCurrentDay: i - paddingDays === day,
+        value: value,
+        isCurrentDay:
+          new Date(yil, ay - 1, i - paddingDays).toLocaleDateString() ===
+          new Date().toLocaleDateString(),
         date: dayString,
+        isPadding: false,
       });
     } else {
       days.push({
         value: new Date(year, month, 0).getDate() - (paddingDays - i),
         isCurrentDay: false,
         date: "",
+        isPadding: true,
       });
     }
   }
   let len = 42 - days.length;
   for (let index = 0; index < len; index++) {
     days.push({
-      value: index + 1,
+      value:
+        index + 1 === 1 ? `${index + 1} ${shortMonths[month + 1]}` : index + 1,
       isCurrentDay: false,
       date: "",
+      isPadding: true,
     });
   }
 

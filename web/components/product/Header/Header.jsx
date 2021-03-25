@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { months } from "locale";
+import { LeftArrowIcon, RightArrowIcon } from "components/icons";
 
 export function Header(props) {
   const { query } = useRouter();
@@ -13,17 +14,25 @@ export function Header(props) {
         <div className="flex flex-1 mx-8 justify-between">
           <div>Hedefim</div>
           <div className="flex items-center">
-            <div>
-              <Link href={`/calendar/${query.yil}/${+query.ay - 1}/1`}>
-                <a>Left</a>
-              </Link>
+            <div className="flex items-center mr-5">
+              <div>
+                <Link href={`/calendar/${query.yil}/${+query.ay - 1}/1`}>
+                  <a>
+                    <LeftArrowIcon />
+                  </a>
+                </Link>
+              </div>
+              <div className="ml-3">
+                <Link href={`/calendar/${query.yil}/${+query.ay + 1}/1`}>
+                  <a>
+                    <span>
+                      <RightArrowIcon />
+                    </span>
+                  </a>
+                </Link>
+              </div>
             </div>
             <div>{months[query.ay - 1]}</div>
-            <div>
-              <Link href={`/calendar/${query.yil}/${+query.ay + 1}/1`}>
-                <a>Right</a>
-              </Link>
-            </div>
           </div>
         </div>
         <div className="flex">

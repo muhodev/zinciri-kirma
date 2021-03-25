@@ -12,3 +12,18 @@ export const months = [
   "Kasım",
   "Aralık",
 ];
+
+export const shortMonths = [
+  "Oca",
+  "Şub",
+  "Mar",
+  "Nis",
+  "May",
+  "Haz",
+  "Tem",
+  "Ağu",
+  "Eyl",
+  "Eki",
+  "Kas",
+  "Ara",
+];
