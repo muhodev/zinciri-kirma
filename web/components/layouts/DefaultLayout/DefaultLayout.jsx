@@ -1,10 +1,10 @@
-import { Head, Header } from "components";
+import { Head, HomeHeader } from "components";
 
 export function DefaultLayout(props) {
   return (
     <>
       <Head />
-      <Header />
+      <HomeHeader />
       <main>{props.children}</main>
       <footer></footer>
     </>

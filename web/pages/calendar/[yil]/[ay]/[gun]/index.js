@@ -1,4 +1,4 @@
-import { DefaultLayout } from "components";
+import { CalendarLayout } from "components";
 import { useDate } from "hooks";
 import style from "./style.module.css";
 import { useRouter } from "next/router";
@@ -39,7 +39,7 @@ export default function HedefPage(props) {
   const { days } = useDate({ yil: query.yil, ay: query.ay, gun: query.gun });
 
   return (
-    <DefaultLayout>
+    <CalendarLayout>
       <div className={style.hedef}>
         <div className="w-full grid gap-0 grid-cols-7">
           {weekDays.map((weekDay, index) => (
@@ -70,6 +70,6 @@ export default function HedefPage(props) {
           ))}
         </div>
       </div>
-    </DefaultLayout>
+    </CalendarLayout>
   );
 }
