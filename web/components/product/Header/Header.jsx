@@ -2,10 +2,19 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { months } from "locale";
 import { LeftArrowIcon, RightArrowIcon } from "components/icons";
+import { isLastMonth, isFirstMonth } from "utils";
 let today = new Date();
 
 export function Header(props) {
   const { query } = useRouter();
+  let prevMonth = isFirstMonth(query.ay - 1)
+    ? `/calendar/${+query.yil - 1}/12/1`
+    : `/calendar/${+query.yil}/${+query.ay - 1}/1`;
+
+  let nextMonth = isLastMonth(query.ay - 1)
+    ? `/calendar/${+query.yil + 1}/1/1`
+    : `/calendar/${+query.yil}/${+query.ay + 1}/1`;
+
   return (
     <header className="border-b shadow-sm h-16 flex items-center w-full justify-center">
       <div className="mx-6 w-full flex items-center justify-between">
@@ -27,14 +36,14 @@ export function Header(props) {
             </div>
             <div className="flex items-center mr-5">
               <div>
-                <Link href={`/calendar/${query.yil}/${+query.ay - 1}/1`}>
+                <Link href={prevMonth}>
                   <a>
                     <LeftArrowIcon />
                   </a>
                 </Link>
               </div>
               <div className="ml-3">
-                <Link href={`/calendar/${query.yil}/${+query.ay + 1}/1`}>
+                <Link href={nextMonth}>
                   <a>
                     <span>
                       <RightArrowIcon />

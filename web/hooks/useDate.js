@@ -67,7 +67,6 @@ export const useDate = ({ yil, ay }) => {
       isPadding: true,
     });
   }
-  console.log(month);
 
   return {
     days,
