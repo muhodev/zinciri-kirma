@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { months } from "locale";
 import { HeaderBase, Logo } from "components";
-import { LeftArrowIcon, RightArrowIcon } from "components/icons";
+import { LeftArrow, RightArrow } from "components/icons";
 import { isLastMonth, isFirstMonth } from "utils";
 let today = new Date();
 
@@ -38,15 +38,17 @@ export function CalendarPageHeader(props) {
             <div>
               <Link href={prevMonth}>
                 <a>
-                  <LeftArrowIcon />
+                  <span className="text-2xl">
+                    <LeftArrow />
+                  </span>
                 </a>
               </Link>
             </div>
             <div className="ml-3">
               <Link href={nextMonth}>
                 <a>
-                  <span>
-                    <RightArrowIcon />
+                  <span className="text-2xl">
+                    <RightArrow />
                   </span>
                 </a>
               </Link>
@@ -56,7 +58,6 @@ export function CalendarPageHeader(props) {
             {months[query.ay - 1]} {query.yil}
           </div>
         </div>
-        <div>Hedefim</div>
       </div>
       <div className="flex">
         <div>Profil</div>

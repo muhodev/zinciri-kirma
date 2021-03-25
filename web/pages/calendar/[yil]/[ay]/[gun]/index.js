@@ -1,4 +1,5 @@
-import { CalendarLayout } from "components";
+import { useState } from "react";
+import { CalendarLayout, NewEvent } from "components";
 import { useDate } from "hooks";
 import style from "./style.module.css";
 import { useRouter } from "next/router";
@@ -35,6 +36,7 @@ const weekDays = [
 ];
 
 export default function HedefPage(props) {
+  const [newEventModal, setNewEventModal] = useState(false);
   const { query } = useRouter();
   const { days } = useDate({ yil: query.yil, ay: query.ay, gun: query.gun });
 
@@ -52,9 +54,16 @@ export default function HedefPage(props) {
         </div>
         <div className="grid gap-0 grid-cols-7 flex-1">
           {days.map((item, index) => (
-            <div className="border-r border-b text-center" key={index}>
+            <div
+              className="border-r border-b text-center"
+              onClick={setNewEventModal.bind(this, true)}
+              key={index}
+            >
               <div className="p-1 w-full h-full">
                 <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                   className={`text-sm px-2 py-1 rounded-full cursor-pointer ${
                     item.isPadding ? `text-gray-500` : null
                   } ${
@@ -70,6 +79,8 @@ export default function HedefPage(props) {
           ))}
         </div>
       </div>
+
+      {newEventModal && <NewEvent close={setNewEventModal.bind(this, false)} />}
     </CalendarLayout>
   );
 }
