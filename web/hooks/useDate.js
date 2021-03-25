@@ -23,15 +23,11 @@ export const useDate = ({ yil, ay }) => {
   const firstDayOfMonth = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const dateString = firstDayOfMonth.toLocaleDateString("tr-TR", {
-    weekday: "long",
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-  });
-  console.log(dateString);
+  let paddingDays = firstDayOfMonth.getDay() - weekdays.indexOf(weekFirstDay);
 
-  const paddingDays = firstDayOfMonth.getDay() - weekdays.indexOf(weekFirstDay);
+  if (paddingDays < 0) {
+    paddingDays = weekdays.length + paddingDays;
+  }
 
   for (let i = 1; i <= paddingDays + daysInMonth; i++) {
     const dayString = `${month + 1}/${i - paddingDays}/${year}`;
