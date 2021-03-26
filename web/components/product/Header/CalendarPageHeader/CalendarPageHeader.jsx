@@ -21,9 +21,9 @@ export function CalendarPageHeader(props) {
       <div className="flex">
         <Logo />
       </div>
-      <div className="flex flex-1 items-center mx-8 justify-between">
+      <div className="flex flex-1 items-center mx-3 md:mx-8 justify-between">
         <div className="flex items-center">
-          <div className="mr-5">
+          <div className="mr-5 hidden md:flex">
             <Link
               href={`/calendar/${today.getFullYear()}/${
                 today.getMonth() + 1
@@ -34,7 +34,7 @@ export function CalendarPageHeader(props) {
               </a>
             </Link>
           </div>
-          <div className="flex items-center mr-5">
+          <div className="flex items-center mr-3 md:mr-5">
             <div>
               <Link href={prevMonth}>
                 <a>
@@ -59,7 +59,7 @@ export function CalendarPageHeader(props) {
           </div>
         </div>
       </div>
-      <div className="flex">
+      <div className="hidden md:flex">
         <div>Profil</div>
       </div>
     </HeaderBase>

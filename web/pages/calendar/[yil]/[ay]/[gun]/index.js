@@ -59,16 +59,16 @@ export default function HedefPage(props) {
               onClick={setNewEventModal.bind(this, true)}
               key={index}
             >
-              <div className="p-1 w-full h-full">
+              <div className="p-1 w-full h-full ">
                 <span
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  className={`text-sm px-2 py-1 rounded-full cursor-pointer ${
+                  className={`line-clamp-1 text-xs flex items-center justify-center px-2 py-0.5 rounded-full cursor-pointer ${
                     item.isPadding ? `text-gray-500` : null
                   } ${
                     item.isCurrentDay
-                      ? `bg-blue-500 text-white`
+                      ? `bg-blue-50 text-blue-700 hover:bg-blue-100`
                       : `hover:bg-gray-100`
                   }`}
                 >

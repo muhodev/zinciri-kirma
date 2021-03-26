@@ -1,8 +1,11 @@
 .modal {
-  @apply w-4/12
+  @apply w-full
+  h-full
+
+  md:w-2/5
+  md:h-4/5
+  md:mt-16
   rounded-md
   shadow-xl
-    bg-white
-    mt-20;
-  min-height: 70vh;
+    bg-white;
 }

@@ -5,9 +5,10 @@ export function CalendarLayout(props) {
   return (
     <>
       <Head />
-      <CalendarPageHeader />
-      <main>{props.children}</main>
-      <footer></footer>
+      <div className="flex flex-col justify-start h-screen w-full">
+        <CalendarPageHeader />
+        <main className="flex-1">{props.children}</main>
+      </div>
     </>
   );
 }

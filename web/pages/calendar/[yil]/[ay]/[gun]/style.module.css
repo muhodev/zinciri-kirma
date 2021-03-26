@@ -1,8 +1,6 @@
 .hedef {
-  @apply border-l;
-  margin: 0 2px;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 64px);
-  width: calc(100vw - 4px);
+  @apply border-l
+  w-full
+  h-full
+  flex flex-col;
 }
